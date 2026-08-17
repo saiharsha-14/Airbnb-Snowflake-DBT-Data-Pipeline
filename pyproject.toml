@@ -1,0 +1,20 @@
+[project]
+name = "airbnb-data-pipeline"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "saiharsha-14", email = "x23194341@student.ncirl.ie" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "dbt-core>=1.12.2",
+    "dbt-snowflake>=1.12.0",
+]
+
+[project.scripts]
+airbnb-data-pipeline = "airbnb_data_pipeline:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
