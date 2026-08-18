@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: bronze_bookings
+    description: "Raw ingested bookings in Bronze layer"
+    columns:
+      - name: BOOKING_ID
+        tests:
+          - unique
+          - not_null
+      - name: LISTING_ID
+        tests:
+          - not_null
+      - name: CREATED_AT
+        tests:
+          - not_null
+
+  - name: bronze_listings
+    description: "Raw ingested listings in Bronze layer"
+    columns:
+      - name: LISTING_ID
+        tests:
+          - unique
+          - not_null
+      - name: HOST_ID
+        tests:
+          - not_null
+
+  - name: bronze_hosts
+    description: "Raw ingested hosts in Bronze layer"
+    columns:
+      - name: HOST_ID
+        tests:
+          - unique
+          - not_null

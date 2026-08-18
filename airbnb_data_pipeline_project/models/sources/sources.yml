@@ -1,0 +1,51 @@
+version: 2
+
+sources:
+  - name: staging
+    database: AIRBNB
+    schema: staging
+    tables:
+      - name: bookings
+        description: "Raw staging bookings loaded from S3"
+        columns:
+          - name: BOOKING_ID
+            tests:
+              - unique
+              - not_null
+          - name: LISTING_ID
+            tests:
+              - not_null
+          - name: BOOKING_AMOUNT
+            tests:
+              - not_null
+          - name: CREATED_AT
+            tests:
+              - not_null
+
+      - name: listings
+        description: "Raw staging listings loaded from S3"
+        columns:
+          - name: LISTING_ID
+            tests:
+              - unique
+              - not_null
+          - name: HOST_ID
+            tests:
+              - not_null
+          - name: PRICE_PER_NIGHT
+            tests:
+              - not_null
+          - name: CREATED_AT
+            tests:
+              - not_null
+
+      - name: hosts
+        description: "Raw staging hosts loaded from S3"
+        columns:
+          - name: HOST_ID
+            tests:
+              - unique
+              - not_null
+          - name: CREATED_AT
+            tests:
+              - not_null
